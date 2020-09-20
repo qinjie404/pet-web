@@ -1,9 +1,11 @@
 <template>
   <div id="nav">
-    <router-link to="/">Home</router-link>|
-    <router-link to="/about">About</router-link>|
-    <router-link to="/user">User</router-link>
-<!--    <button @click="userClick()">user</button>-->
+    <router-link to="/">Home</router-link>
+    |
+    <router-link to="/about">About</router-link>
+    |
+    <router-link :to="'/user/'+userName">User</router-link>
+    <!--    <button @click="userClick()">user</button>-->
   </div>
   <router-view v-slot="{ Component }">
     <keep-alive>
@@ -15,6 +17,11 @@
 <script>
   export default {
     name: "App",
+    data() {
+      return {
+        userName: "qinjie"
+      }
+    },
     methods: {
       userClick() {
         this.$router.push("/user");

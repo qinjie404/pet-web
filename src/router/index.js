@@ -2,7 +2,9 @@ import {createRouter, createWebHashHistory} from "vue-router";
 
 const Home = () => import("../views/Home");
 const About = () => import("../views/About");
-const User = () => import("../views/User")
+const User = () => import("../views/User");
+const AboutMessage = () => import("../views/AboutMessage");
+const AboutNews = () => import("../views/AboutNews");
 const routes = [
   {
     path: "/",
@@ -12,10 +14,22 @@ const routes = [
   {
     path: "/about",
     name: "About",
-    component: About
+    component: About,
+    children: [
+      {
+        path: "news",
+        name: "AboutNews",
+        component: AboutNews
+      },
+      {
+        path: "message",
+        name: "AboutMessage",
+        component: AboutMessage
+      }
+    ]
   },
   {
-    path: "/user",
+    path: "/user/:userName",
     name: "User",
     component: User
   }
