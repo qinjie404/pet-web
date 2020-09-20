@@ -10,6 +10,9 @@ const routes = [
   {
     path: "/",
     name: "Home",
+    meta: {
+      title: "Home"
+    },
     component: Home
   },
   {
@@ -45,5 +48,11 @@ const router = createRouter({
   history: createWebHashHistory(),
   routes
 });
+
+/*全局守卫*/
+router.beforeEach(((to, from, next) => {
+  document.title = to.matched[0].name;
+  next();
+}))
 
 export default router;
