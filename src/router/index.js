@@ -5,6 +5,7 @@ const About = () => import("../views/About");
 const User = () => import("../views/User");
 const AboutMessage = () => import("../views/AboutMessage");
 const AboutNews = () => import("../views/AboutNews");
+const Profile = () => import("../views/Profile");
 const routes = [
   {
     path: "/",
@@ -32,7 +33,12 @@ const routes = [
     path: "/user/:userName",
     name: "User",
     component: User
-  }
+  },
+  {
+    path: "/profile",
+    name: "Profile",
+    component: Profile
+  },
 ];
 
 const router = createRouter({

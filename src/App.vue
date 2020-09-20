@@ -5,6 +5,8 @@
     <router-link to="/about">About</router-link>
     |
     <router-link :to="'/user/'+userName">User</router-link>
+    |
+    <router-link :to="profile">Profile</router-link>
     <!--    <button @click="userClick()">user</button>-->
   </div>
   <router-view v-slot="{ Component }">
@@ -19,7 +21,14 @@
     name: "App",
     data() {
       return {
-        userName: "qinjie"
+        userName: "qinjie",
+        profile: {
+          path: "/profile",
+          query: {
+            name: "qinjie",
+            age: "25"
+          }
+        }
       }
     },
     methods: {
